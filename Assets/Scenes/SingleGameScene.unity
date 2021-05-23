@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 435418923}
   - component: {fileID: 435418926}
-  - component: {fileID: 435418924}
   - component: {fileID: 435418925}
   m_Layer: 5
   m_Name: Background
@@ -161,28 +160,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &435418924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 435418922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5f3d323d6b58dc42af559c50d3ab846, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _blockXYCount: {x: 9, y: 9}
-  dollArea: {fileID: 750883492}
-  vegetableBlocks:
-  - {fileID: 8155928583835114825, guid: 27477a67b8b9dda4987abf09b02eaba7, type: 3}
-  - {fileID: 1559254014861572199, guid: 0228564cc0c90c6479fa7772253bb10c, type: 3}
-  - {fileID: 3720860567573383741, guid: bc235d375cc8b0843a30b7b77dbbd572, type: 3}
-  - {fileID: 2240130580594977630, guid: 20b5abf286340b54d8ac006610214cc0, type: 3}
-  - {fileID: 5399764103102218381, guid: 7a40c95fb9ef6cc42956c2b64349e7ec, type: 3}
-  - {fileID: 9082042775175285654, guid: a00704500961fb549870d2946755e547, type: 3}
-  - {fileID: 4672060300036209895, guid: 761e42e8dd42d2049b7bf11d01a5e5fa, type: 3}
 --- !u!114 &435418925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,7 +262,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &649438913
 GameObject:
@@ -464,7 +441,7 @@ RectTransform:
   - {fileID: 1205611502}
   - {fileID: 826181621}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -505,8 +482,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.5499878, y: -7.3600006}
+  m_SizeDelta: {x: -35.02, y: -41.04}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &750883493
 MonoBehaviour:
@@ -555,6 +532,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 826181621}
+  - component: {fileID: 826181622}
+  - component: {fileID: 826181623}
+  - component: {fileID: 826181624}
   m_Layer: 5
   m_Name: GameBoard
   m_TagString: Untagged
@@ -583,6 +563,94 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 231}
   m_SizeDelta: {x: 0, y: 462}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &826181622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826181620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5f3d323d6b58dc42af559c50d3ab846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _blockXYCount: {x: 9, y: 9}
+  dollArea: {fileID: 750883492}
+  vegetableBlocks:
+  - {fileID: 5428880908881849989, guid: 27477a67b8b9dda4987abf09b02eaba7, type: 3}
+  - {fileID: 3448485155844639659, guid: 0228564cc0c90c6479fa7772253bb10c, type: 3}
+  - {fileID: 710382649227049457, guid: bc235d375cc8b0843a30b7b77dbbd572, type: 3}
+  - {fileID: 2697204678623844498, guid: 20b5abf286340b54d8ac006610214cc0, type: 3}
+  - {fileID: 8113022996038251329, guid: 7a40c95fb9ef6cc42956c2b64349e7ec, type: 3}
+  - {fileID: -4291637491204163494, guid: a00704500961fb549870d2946755e547, type: 3}
+  - {fileID: 8840163300619833131, guid: 761e42e8dd42d2049b7bf11d01a5e5fa, type: 3}
+  ltd:
+  - {fileID: 2800000, guid: 0635eb4bc99e72f438c2e524715c4ec7, type: 3}
+  - {fileID: 2800000, guid: 8b822400a220af04780a8708bd13e0ec, type: 3}
+--- !u!114 &826181623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826181620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecc27e9c6bfdb1f47931a4e741fb2031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!222 &826181624
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826181620}
+  m_CullTransparentMesh: 1
+--- !u!1 &844972254
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 844972256}
+  - component: {fileID: 844972255}
+  m_Layer: 0
+  m_Name: GameMgr
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &844972255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 844972254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810a33a895c216f4caff2fdd377d7c7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &844972256
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 844972254}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.3575136, y: -0.9796553, z: -0.53489286}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1205611501
 GameObject:
   m_ObjectHideFlags: 0

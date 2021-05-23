@@ -13,12 +13,12 @@ public class GameBoard : MonoBehaviour
     Vector2 _vegetableBlockRocalScale;
 
     public RectTransform dollArea;
-    public List<Transform> vegetableBlocks;
+    public List<VegetableDoll> vegetableBlocks;
 
-    List<List<Transform>> _board;
 
-    // 임시
-    List<List<int>> _vegetableType;
+    public List<Texture2D> ltd;
+
+    List<List<VegetableDoll>> _board;
 
     // Start is called before the first frame update
     void Start()
@@ -29,155 +29,50 @@ public class GameBoard : MonoBehaviour
         _blockOffset = _vegetableBlockRocalScale * _RATIO;
 
         // board 초기화
-        _board = new List<List<Transform>>();
-        _vegetableType = new List<List<int>>();
-
+        _board = new List<List<VegetableDoll>>();
+        
         for(int i = 0; i < _blockXYCount.x; ++i)
         {
-            _board.Add(new List<Transform>());
-            _vegetableType.Add(new List<int>());
+            _board.Add(new List<VegetableDoll>());
         }
 
         // Blocks 배치
         ReFillBoard();
-        Refresh();
-
-        //FindPangVegetable();
+        Reposition();
     }
-
-     bool IsInside(int xpos, int ypos)
-     {
-        if(xpos < 0 || xpos >= _blockXYCount.x)
-        {
-            return false;
-        }
-        else if(ypos < 0 || ypos >= _blockXYCount.x)
-        {
-            return false;
-        }
-
-        return true;
-     }
-
-    // 좌우로 터질 블럭의 개수를 얻어내는 함수
-    int FindRowPangBlockCount(int xpos, int ypos, int dir, int type)
-    {
-        if(!IsInside(xpos, ypos))
-        {
-            return 0;
-        }
-        else if(_vegetableType[xpos][ypos] != type)
-        {
-            return 0;
-        }
-
-        return 1 + FindRowPangBlockCount(xpos + dir, ypos, dir, type);
-    }
-
-    int FindColumnPangBlockCount(int xpos, int ypos, int dir, int type)
-    {
-        if (!IsInside(xpos, ypos))
-        {
-            return 0;
-        }
-        else if (_vegetableType[xpos][ypos] != type)
-        {
-            return 0;
-        }
-
-        return 1 + FindRowPangBlockCount(xpos, ypos + dir, dir, type);
-    }
-
-    // 없앨 블럭 있는지 확인
-    bool FindPangVegetable()
-    {
-        for (int y = 0; y < _blockXYCount.y; ++y)
-        {
-            for (int x = 0; x < _blockXYCount.x; ++x)
-            {
-                int rightPangCount = FindRowPangBlockCount(x + 1, y, 1, _vegetableType[x][y]);
-                int leftPangCount = FindRowPangBlockCount(x - 1, y, -1, _vegetableType[x][y]);
-                int rowPangCount = rightPangCount + leftPangCount + 1;
-
-                int upPangCount = FindColumnPangBlockCount(x, y + 1, 1, _vegetableType[x][y]);
-                int downPangCount = FindColumnPangBlockCount(x, y - 1, -1, _vegetableType[x][y]);
-                int columnPangCount = upPangCount + downPangCount + 1;
-
-                if(rowPangCount >= 3 || columnPangCount >= 3)
-                {
-                    Destroy(_board[x][y]);
-                    _vegetableType[x].RemoveAt(y);
-
-                    if(rowPangCount >= 3)
-                    {
-                        DestroyRowVegetable(x, y, leftPangCount, rightPangCount);
-                    }
-                    if(columnPangCount >= 3)
-                    {
-                        DestroyColumnVegetable(x, y, upPangCount, downPangCount);
-                    }
-
-                    ReFillBoard();
-                    //Refresh();
-                }
-            }
-        }
-
-        return false;
-    }
-
-
-    // 빈 영역 운석 낙하
-
 
     // 블럭 삭제
-    void DestroyRowVegetable(int xpos, int ypos, int leftCount, int rightCount)
+    public void DestroyVegetable(List<Vector2Int> vegetablePositions)
     {
-        for(int x = xpos - leftCount; x <= xpos + rightCount; ++x)
+        foreach(Vector2Int vegetablePos in vegetablePositions)
         {
-            if(x == xpos)
-            {
-                continue;
-            }
-            Destroy(_board[x][ypos].gameObject);
-            _board[x].RemoveAt(ypos);
-            _vegetableType[x].RemoveAt(ypos);
+            Destroy(_board[vegetablePos.x][vegetablePos.y]);
+            //_board[vegetablePos.x][vegetablePos.y] = null;
         }
-    }
 
-    void DestroyColumnVegetable(int xpos, int ypos, int upCount, int downCount)
-    {
-        for (int y = ypos + upCount - 1; y <= xpos + downCount; ++y)
-        {
-            Destroy(_board[xpos][y].gameObject);
-            _board[xpos].RemoveAt(y);
-            _vegetableType[xpos].RemoveAt(y);
-        }
+        Refresh();
+        ReFillBoard();
+        Reposition();
     }
-
 
     // 블럭 재생성
     void ReFillBoard()
     {
         for (int x = 0; x < _blockXYCount.x; ++x)
         {
-            Debug.Log(x);
-            Debug.Log(_board[x]);
-
             while(_board[x].Count != _blockXYCount.y)
             {
-
                 int vegetableType = Random.Range(0, vegetableBlocks.Count);
                 // Block 생성
-                _board[x].Add(Instantiate(vegetableBlocks[vegetableType], transform));
-                _board[x][_board[x].Count - 1].localScale = _vegetableBlockRocalScale;
-                _vegetableType[x].Add(vegetableType);
+                _board[x].Add(Instantiate<VegetableDoll>(vegetableBlocks[vegetableType], transform));
+                _board[x][_board[x].Count - 1].SetVegetableType(vegetableType);
+                _board[x][_board[x].Count - 1].transform.localScale = _vegetableBlockRocalScale;
             }
         }
     }
 
-    // 블럭 위치 설정
-    void Refresh()
+    // 블럭 위치 재조정
+    void Reposition()
     {
         Vector2 areaSize = dollArea.rect.size;
 
@@ -185,8 +80,35 @@ public class GameBoard : MonoBehaviour
         {
             for (int y = 0; y < _blockXYCount.y; ++y)
             {
-                _board[x][y].localPosition = (_blockOffset - areaSize) / 2.0f + _blockOffset * new Vector2(y, x);
+                _board[x][y].transform.localPosition = (_blockOffset - areaSize) / 2.0f + _blockOffset * new Vector2(y, x);
             }
         }
+    }
+
+    // List에서 제거된 block 삭제
+    void Refresh()
+    {
+        for (int x = 0; x < _blockXYCount.x; ++x)
+        {
+            for (int y = 0; y < _blockXYCount.y; ++y)
+            {
+                if(_board[x][y] == null)
+                {
+                    _board[x].RemoveAt(y);
+                    --y;
+                }
+            }
+        }
+    }
+
+    // Get 함수
+    public Vector2 GetBoardSize()
+    {
+        return _blockXYCount;
+    }
+
+    public List<List<VegetableDoll>> GetBoard()
+    {
+        return _board;
     }
 }

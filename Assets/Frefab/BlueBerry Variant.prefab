@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3647477241888179340, guid: 761e42e8dd42d2049b7bf11d01a5e5fa, type: 3}
       propertyPath: m_Name
-      value: BlueBerry
+      value: BlueBerry Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4672060300036209895, guid: 761e42e8dd42d2049b7bf11d01a5e5fa, type: 3}
       propertyPath: m_Pivot.x
