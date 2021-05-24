@@ -97,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 21300010, guid: 51e2a399831333b478ec978ee598bf0e, type: 3}
     - target: {fileID: 7488248597564162060, guid: 0228564cc0c90c6479fa7772253bb10c, type: 3}
       propertyPath: m_Name
-      value: StarFruit
+      value: StarFruit Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0228564cc0c90c6479fa7772253bb10c, type: 3}

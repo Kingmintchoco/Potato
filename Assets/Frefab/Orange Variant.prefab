@@ -97,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4749936238829875798, guid: bc235d375cc8b0843a30b7b77dbbd572, type: 3}
       propertyPath: m_Name
-      value: Orange
+      value: Orange Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc235d375cc8b0843a30b7b77dbbd572, type: 3}

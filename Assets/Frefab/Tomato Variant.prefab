@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 883245276057580541, guid: a00704500961fb549870d2946755e547, type: 3}
       propertyPath: m_Name
-      value: Tomato
+      value: Tomato Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8989367184951327622, guid: a00704500961fb549870d2946755e547, type: 3}
       propertyPath: m_Sprite

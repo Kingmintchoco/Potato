@@ -15,7 +15,6 @@ public class GameBoard : MonoBehaviour
     public RectTransform dollArea;
     public List<VegetableDoll> vegetableBlocks;
 
-
     public List<Texture2D> ltd;
 
     List<List<VegetableDoll>> _board;
@@ -64,7 +63,7 @@ public class GameBoard : MonoBehaviour
             {
                 int vegetableType = Random.Range(0, vegetableBlocks.Count);
                 // Block »ý¼º
-                _board[x].Add(Instantiate<VegetableDoll>(vegetableBlocks[vegetableType], transform));
+                _board[x].Add(Instantiate<VegetableDoll>(vegetableBlocks[vegetableType], dollArea.transform));
                 _board[x][_board[x].Count - 1].SetVegetableType(vegetableType);
                 _board[x][_board[x].Count - 1].transform.localScale = _vegetableBlockRocalScale;
             }

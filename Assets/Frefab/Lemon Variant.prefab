@@ -9,7 +9,51 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 245343903320876322, guid: 27477a67b8b9dda4987abf09b02eaba7, type: 3}
       propertyPath: m_Name
-      value: Lemon
+      value: Lemon Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2383804190547870369, guid: 27477a67b8b9dda4987abf09b02eaba7, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2383804190547870369, guid: 27477a67b8b9dda4987abf09b02eaba7, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2383804190547870369, guid: 27477a67b8b9dda4987abf09b02eaba7, type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2383804190547870369, guid: 27477a67b8b9dda4987abf09b02eaba7, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2383804190547870369, guid: 27477a67b8b9dda4987abf09b02eaba7, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2383804190547870369, guid: 27477a67b8b9dda4987abf09b02eaba7, type: 3}
+      propertyPath: m_Interpolate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2383804190547870369, guid: 27477a67b8b9dda4987abf09b02eaba7, type: 3}
+      propertyPath: m_UseAutoMass
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2383804190547870369, guid: 27477a67b8b9dda4987abf09b02eaba7, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2383804190547870369, guid: 27477a67b8b9dda4987abf09b02eaba7, type: 3}
+      propertyPath: m_SleepingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2383804190547870369, guid: 27477a67b8b9dda4987abf09b02eaba7, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4895168038806151864, guid: 27477a67b8b9dda4987abf09b02eaba7, type: 3}
+      propertyPath: m_Size.x
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8155928583835114825, guid: 27477a67b8b9dda4987abf09b02eaba7, type: 3}
       propertyPath: m_Pivot.x
